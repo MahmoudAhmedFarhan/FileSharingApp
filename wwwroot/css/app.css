@@ -1,0 +1,17 @@
+﻿.main-content {
+    padding-top: 130px;
+    padding-bottom: 20px;
+    min-height: 500px;
+}
+
+    .main-content h1, .main-content h2 {
+        color: #0091ea;
+    }
+
+#mu-google-map {
+    margin-bottom: 10px !important;
+}
+
+.field-validation-error {
+    color: red;
+}

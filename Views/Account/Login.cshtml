@@ -1,0 +1,63 @@
+﻿@inject IViewLocalizer Localizer
+@model FileSharingApp.Models.LoginViewModel
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+
+<section id="mu-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-contact-area" style="padding-top:0px">
+                    <!-- Title -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-title">
+                                <h2>@Localizer["Title"]</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Contact Content -->
+                    <div class="mu-contact-content">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="mu-contact-form-area">
+                                    <div id="form-messages"></div>
+                                    <form id="contact" method="post" class="mu-contact-form" asp-action="Login" asp-controller="Account" asp-route-ReturnUrl="@Context.Request.Query["ReturnUrl"]">
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <span class="fa fa-user mu-contact-icon"></span>
+                                            <input type="email" asp-for="Email" class="form-control" placeholder="@Localizer["Email"]" id="name" required>
+                                            <span asp-validation-for="Email"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <span class="fa fa-envelope mu-contact-icon"></span>
+                                            <input type="password" asp-for="Password" class="form-control" placeholder="@Localizer["Password"]" id="email" required>
+                                            <span asp-validation-for="Password"></span>
+                                        </div>
+
+                                        <button type="submit" class="mu-send-msg-btn"><span>@Localizer["Submit"]</span></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="padding-top:15px">
+                                    <a class="btn btn-outline-primary" asp-action="ExternalLogin" asp-route-provider="Facebook" asp-controller="Account">@Localizer["FacebookLogin"]</a>
+                                    <a class="btn btn-outline-danger" asp-action="ExternalLogin" asp-route-provider="Google" asp-controller="Account">@Localizer["GoogleLogin"]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Contact Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,22 @@
+﻿@font-face {
+    font-family: 'Cairo-Light';
+    src: url('/fonts/Cairo/Cairo-Light.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Cairo-Light', sans-serif !important;
+}
+
+
+.navbar-brand.mu-logo {
+    padding-left: 30px;
+    padding-right: 0px;
+}
+
+.input-group.input-group-lg {
+    direction: ltr !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo-Light', sans-serif !important;
+}
